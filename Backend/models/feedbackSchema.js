@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
         required:true
     },
     feedback:{
-        type:Text
+        type:String
     }
     
 },{timestamps:true})

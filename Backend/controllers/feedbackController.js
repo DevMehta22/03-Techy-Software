@@ -18,4 +18,4 @@ const feedback = async (req, res) => {
   }
 };
 
-module.exports = Feedback
+module.exports = {feedback}
