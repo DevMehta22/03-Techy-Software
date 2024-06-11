@@ -5,23 +5,24 @@ const bcrypt = require('bcrypt')
 const login = async(req,res)=>{
     const {custEmail,password} = req.body;
     try{
-        //check if email and password are provided
+        
         if(!custEmail || !password) 
         return res.status(400).send({msg:"Please provide an email and a password"});
-    //find the user by email
+    
     const user = await Customer.findOne({custEmail:custEmail});
     if(user){
-        //if user exists check the password
+        
         const isMatch =await bcrypt.compare(password,user.password);
         if (!isMatch) return res.status(400).send({ msg: 'Invalid Password' });
-        //create token
+        
         jwt.sign(
             {id:user._id},
             process.env.SECRET_KEY ,
             {expiresIn:'3d'},
             (err,token)=> {
                 if (err) throw err;
-                res.json({
+                // console.log(user)
+                return res.json({
                     token,
                     user:{
                         id : user.id,
@@ -40,46 +41,57 @@ const login = async(req,res)=>{
 }
 }
 
-const register = async(req,res)=>{
-    const {custName,custEmail,password,contactNo} = req.body;
-    if(!custName || !custEmail || !password || !contactNo){
-        return res.status(400).send("please include Name, Email, Password and contact details");
+const register = async (req, res) => {
+    const { custName, custEmail, password, contactNo } = req.body;
+
+    // Check if all required fields are provided
+    if (!custName || !custEmail || !password || !contactNo) {
+        return res.status(400).send("Please include Name, Email, Password, and Contact details");
     }
 
-    const ifUser = await Customer.findOne({custEmail});
-    if(ifUser) return res.status(400).send("Email already in use");
-    bcrypt.genSalt(10,(err,salt)=>{
-        if(err) throw err;
-        bcrypt.hash(password, salt, (err, hash) => {
-            if(err) throw err;
-            const user = new Customer({
-                custName,
-                custEmail,
-                password:hash,
-                contactNo
-                })
-                user.save()
-                .then(data=>{
-                    jwt.sign(
-                        {id:user._id},
-                        process.env.SECRET_KEY,
-                        { expiresIn: "3d" },
-                        (err,token)=>{
-                            if(err)throw err;
-                            res.json({
-                                token,
-                                user:{
-                                    custName:data.custName,
-                                    custEmail:data.custEmail,
-                                    contactNo:data.contactNo
-                                }
-                            })
-                        }
-                    )
-                })
-        })
-    })
-}
+    try {
+        // Check if the user already exists
+        const ifUser = await Customer.findOne({ custEmail });
+        if (ifUser) return res.status(400).send("Email already in use");
+
+        // Generate salt and hash the password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        // Create a new user
+        const user = new Customer({
+            custName,
+            custEmail,
+            password: hashedPassword,
+            contactNo
+        });
+
+        // Save the user
+        const data = await user.save();
+
+        // Generate JWT token
+        const token = jwt.sign(
+            { id: user._id },
+            process.env.SECRET_KEY,
+            { expiresIn: "3d" }
+        );
+
+        // Respond with token and user details
+        return res.status(200).json({
+            token,
+            user: {
+                custName: data.custName,
+                custEmail: data.custEmail,
+                contactNo: data.contactNo
+            }
+        });
+
+    } catch (err) {
+        // Handle errors
+        console.log(err)
+        return res.status(500).send(err);
+    }
+};
 
 
 module.exports = {login,register}

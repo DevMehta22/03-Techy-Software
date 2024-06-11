@@ -17,7 +17,7 @@ const schema = new mongoose.Schema({
         required:true
     },
     contactNo:{
-        type:BigInt,
+        type:Number,
         required:true,      
     }
 },{timestamps:true})

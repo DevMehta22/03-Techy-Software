@@ -2,8 +2,9 @@ const serviceSchema = require("../models/serviceSchema");
 
 const addService = async (req, res) => {
   const { serviceName, description, price, contactPersonName, contactNo } = req.body;
-  if (serviceName || price || contactPersonName || contactNo == null) {
-    res.status(401).json({ msg: "Please fill all fields" });
+  // console.log(serviceName,description,price,contactPersonName,contactNo)
+  if (!serviceName || !price || !contactPersonName || !contactNo) {
+    res.status(400).json({ msg: "Please fill all fields" });
   } else {
     try {
       await serviceSchema
@@ -24,24 +25,20 @@ const addService = async (req, res) => {
 };
 
 const deleteService = async (req, res) => {
-  const id = req.params;
+  const id = req.params.id;
   try {
     await serviceSchema.findByIdAndDelete({ _id: id }).then(() => {
       res.status(200).json({ msg: "Service deleted successfully" });
     });
   } catch (error) {
-    res.stauts(401).json({ err: error });
+    res.status(400).json({ err: error });
   }
 };
 
 const services = async (req, res) => {
-  try {
-    await serviceSchema
-      .find()
-      .then((services) => res.status(200).json({ services: services }));
-  } catch (error) {
-    res.status(401).json({ err: error });
-  }
+  
+    await serviceSchema.find().then((services) => res.status(200).json({ services: services }));
+  
 };
 
 module.exports = {addService,deleteService,services}
