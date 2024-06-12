@@ -1,0 +1,58 @@
+/* src/pages/Services.css */
+
+.services {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.service-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.service-item {
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-details {
+  /* Optional: Add specific styles for service details */
+}
+
+.service-item h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.service-item p {
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.service-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-meta p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.services-intro {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+}
