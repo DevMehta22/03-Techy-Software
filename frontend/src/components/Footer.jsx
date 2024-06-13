@@ -40,7 +40,7 @@ const Footer = ()=>{
             </Link>
           </li>
           <li className="menu__item">
-            <Link className="menu__link" to="#">
+            <Link className="menu__link" to="/contact">
               Contact
             </Link>
           </li>

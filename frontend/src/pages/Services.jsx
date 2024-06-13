@@ -35,26 +35,28 @@ const Services = () => {
         {services.map((service) => (
           <div key={service._id} className="service-card">
             <img src={getImageUrl(service.filepath)} alt={service.serviceName} className="service-image" />
-            <div className="service-header">
-              <h3 className="service-name">{service.serviceName}</h3>
-              <div className="service-icons">
-                <FontAwesomeIcon icon={faDollarSign} className="icon" />
-                <FontAwesomeIcon icon={faUser} className="icon" />
+            <div className="service-details">
+              <div className="service-header">
+                <h3 className="service-name">{service.serviceName}</h3>
+                <div className="service-icons">
+                  <FontAwesomeIcon icon={faDollarSign} className="icon" />
+                  <FontAwesomeIcon icon={faUser} className="icon" />
+                </div>
               </div>
-            </div>
-            <p className="service-description">{service.description}</p>
-            <div className="service-meta">
-              <div className="meta-item">
-                <FontAwesomeIcon icon={faDollarSign} className="meta-icon" />
-                <span className="meta-text">${service.price}</span>
-              </div>
-              <div className="meta-item">
-                <FontAwesomeIcon icon={faUser} className="meta-icon" />
-                <span className="meta-text">{service.contactPersonName}</span>
-              </div>
-              <div className="meta-item">
-                <FontAwesomeIcon icon={faInfoCircle} className="meta-icon" />
-                <span className="meta-text">{service.contactNo}</span>
+              <p className="service-description">{service.description}</p>
+              <div className="service-meta">
+                <div className="meta-item">
+                  <FontAwesomeIcon icon={faDollarSign} className="meta-icon" />
+                  <span className="meta-text">${service.price}</span>
+                </div>
+                <div className="meta-item">
+                  <FontAwesomeIcon icon={faUser} className="meta-icon" />
+                  <span className="meta-text">{service.contactPersonName}</span>
+                </div>
+                <div className="meta-item">
+                  <FontAwesomeIcon icon={faInfoCircle} className="meta-icon" />
+                  <span className="meta-text">{service.contactNo}</span>
+                </div>
               </div>
             </div>
           </div>

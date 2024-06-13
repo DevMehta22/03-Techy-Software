@@ -8,7 +8,7 @@ const Home = () => (
       <div className="hero-text">
         <h1>Welcome to Techy Solutions</h1>
         <p>We offer the best software solutions for your business.</p>
-        <button>Get Started</button>
+        <button><a href='/register'>Get Started</a></button>
       </div>
     </section>
 
@@ -33,8 +33,6 @@ const Home = () => (
       </div>
     </section>
 
-    <section className="background-image"></section>
-
     <section className="testimonials">
       <h2>What Our Clients Say</h2>
       <div className="testimonial-list">
@@ -51,7 +49,7 @@ const Home = () => (
 
     <section className="cta">
       <h2>Ready to Transform Your Business?</h2>
-      <button>Contact Us</button>
+      <button><a href='/contact'>Contact Us</a></button>
     </section>
   </div>
 );

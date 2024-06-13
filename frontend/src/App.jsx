@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Feedback from './pages/Feedback';
 import Footer from './components/Footer';
+import Contact from './pages/Contact';
 
 const App = () => (
   <Router>
@@ -20,6 +21,7 @@ const App = () => (
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path='/feedback' element={<Feedback/>}/>
+      <Route path='/contact' element={<Contact/>}/>
     </Routes>
     <Footer/>
   </Router>

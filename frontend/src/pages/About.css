@@ -1,54 +1,85 @@
 /* src/pages/About.css */
 
 .about {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  background: #f9f9f9;
-  padding: 2rem;
-  line-height: 1.6;
+  animation: fadeIn 1s ease-in;
 }
 
 .about-hero {
-  background: linear-gradient(to right, #92a1e4, #d6beee);
+  background: linear-gradient(135deg, #6e7df3, #a6c0fe);
   color: #fff;
-  padding: 2rem;
   text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 60px 20px;
+  margin-bottom: 50px;
+  animation: slideInFromLeft 1s ease-in-out;
 }
 
 .about-hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  font-size: 3rem;
+  margin-bottom: 20px;
 }
 
 .about-hero p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
+  font-size: 1.5rem;
 }
 
 .about-mission, .about-history, .about-team {
-  margin-top: 2rem;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
 }
 
-.about-mission h2, .about-history h2, .about-team h2 {
-  font-size: 2rem;
-  color: #764ba2;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.about-mission p, .about-history p, .about-team p {
-  font-size: 1rem;
+.about-content {
+  display: flex;
+  align-items: center;
   max-width: 800px;
   margin: 0 auto;
-  text-align: center;
-  color: #555;
+  text-align: left;
 }
 
+.about-icon {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  font-size: 3rem;
+  color: #6e7df3; /* Adjust icon color as needed */
+  animation: rotateIn 1.2s ease-in-out;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes rotateIn {
+  from { transform: rotate(-200deg); opacity: 0; }
+  to { transform: rotate(0); opacity: 1; }
+}
