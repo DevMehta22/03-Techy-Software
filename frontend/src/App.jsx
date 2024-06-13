@@ -7,6 +7,8 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Feedback from './pages/Feedback';
+import Footer from './components/Footer';
 
 const App = () => (
   <Router>
@@ -17,7 +19,9 @@ const App = () => (
       <Route path="/services" element={<Services />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
+      <Route path='/feedback' element={<Feedback/>}/>
     </Routes>
+    <Footer/>
   </Router>
 );
 

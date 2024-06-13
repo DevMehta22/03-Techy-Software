@@ -91,6 +91,11 @@
   color: #555;
 }
 
+.background-image {
+  height: 400px; 
+  background: url('img.jpeg') no-repeat center center / cover;
+}
+
 .testimonials {
   padding: 2rem;
   background: #fff;

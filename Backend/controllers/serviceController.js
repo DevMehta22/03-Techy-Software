@@ -3,7 +3,7 @@ const serviceSchema = require("../models/serviceSchema");
 const addService = async (req, res) => {
   const { serviceName, description, price, contactPersonName, contactNo } = req.body;
   // console.log(serviceName,description,price,contactPersonName,contactNo)
-  if (!serviceName || !price || !contactPersonName || !contactNo) {
+  if (!serviceName || !price || !contactPersonName || !contactNo || !req.file) {
     res.status(400).json({ msg: "Please fill all fields" });
   } else {
     try {
@@ -14,6 +14,8 @@ const addService = async (req, res) => {
           price: price,
           contactPersonName: contactPersonName,
           contactNo: contactNo,
+          filename: req.file.filename,
+          filepath: 'uploads/' + req.file.filename
         })
         .then(() => {
           res.status(200).json({ msg: "service added successfully" });

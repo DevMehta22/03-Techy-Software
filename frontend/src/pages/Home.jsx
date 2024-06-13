@@ -6,7 +6,7 @@ const Home = () => (
   <div className="home">
     <section className="hero">
       <div className="hero-text">
-        <h1>Welcome to Techy Software</h1>
+        <h1>Welcome to Techy Solutions</h1>
         <p>We offer the best software solutions for your business.</p>
         <button>Get Started</button>
       </div>
@@ -32,6 +32,8 @@ const Home = () => (
         </div>
       </div>
     </section>
+
+    <section className="background-image"></section>
 
     <section className="testimonials">
       <h2>What Our Clients Say</h2>

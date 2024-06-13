@@ -19,6 +19,14 @@ const schema = new mongoose.Schema({
     contactNo:{
         type:Number,
         required:true,      
+    },
+    filename: {
+        type: String,
+        required: true
+    },
+    filepath: {
+        type: String,
+        required: true
     }
 },{timestamps:true})
 

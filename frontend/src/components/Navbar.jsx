@@ -6,7 +6,7 @@ import './Navbar.css';
 const Navbar = () => (
   <nav className="navbar">
     <ul>
-      <li id='logo'><Link to="/">Techy-Software</Link></li>
+      <li id='logo'><Link to="/">Techy-Solutions</Link></li>
       <li><Link to="/about">About Us</Link></li>
       <li><Link to="/services">Services</Link></li>
       <li><Link to="/feedback">Feedback</Link></li>
