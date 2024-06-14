@@ -23,7 +23,7 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:4000/api/customer/login', formData);
       console.log(response);
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       console.error("Login error:", error);
       setErrMsg("Invalid Credentials");
@@ -68,7 +68,7 @@ const Login = () => {
         </form>
         {errMsg && <p className="error-message">{errMsg}</p>}
         <p className="forgot-password">
-          <a href="/forgot-password">Forgot your password?</a>
+          <a href="#">Forgot your password?</a>
         </p>
         <p className="signup-link">
           Don't have an account? <a href="/register">Register here</a>

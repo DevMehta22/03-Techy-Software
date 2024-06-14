@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Feedback from './pages/Feedback';
 import Footer from './components/Footer';
 import Contact from './pages/Contact';
+import ClientDashboard from './pages/ClientDashboard';
 
 const App = () => (
   <HelmetProvider>
@@ -24,6 +25,7 @@ const App = () => (
       <Route path="/login" element={<Login />} />
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/contact' element={<Contact/>}/>
+      <Route path='/dashboard' element={<ClientDashboard/>}/>
     </Routes>
     <Footer/>
   </Router>
