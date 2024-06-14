@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {HelmetProvider} from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -12,7 +13,8 @@ import Footer from './components/Footer';
 import Contact from './pages/Contact';
 
 const App = () => (
-  <Router>
+  <HelmetProvider>
+    <Router>
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
@@ -25,6 +27,8 @@ const App = () => (
     </Routes>
     <Footer/>
   </Router>
+  </HelmetProvider>
+  
 );
 
 export default App;

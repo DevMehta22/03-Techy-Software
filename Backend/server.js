@@ -6,10 +6,19 @@ const custRoutes = require('./routes/custRoutes')
 const serviceRoutes = require('./routes/serviceRoutes')
 const feedbackRoutes = require('./routes/feedbackRoutes')
 const cors = require('cors')
+const helmet = require('helmet')
+const morgan = require('morgan')
 
 app.use(express.json())
 app.use(cors())
-app.use('/uploads', express.static('uploads'));
+app.use(helmet())
+app.use(morgan('combined'))
+app.use('/uploads', (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Cross-Origin-Resource-Policy', ' cross-origin');
+    res.header('Cross-Origin-Opener-Policy', 'same-origin');
+    next();
+},express.static('uploads'));
 
 app.use('/api/customer',custRoutes)
 app.use('/api/services',serviceRoutes)

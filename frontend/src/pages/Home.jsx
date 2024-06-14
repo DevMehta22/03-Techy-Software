@@ -1,9 +1,15 @@
 // src/pages/Home.js
 import React from 'react';
+import {Helmet} from 'react-helmet-async';
 import './Home.css';
 
 const Home = () => (
   <div className="home">
+     <Helmet>
+      <title>Home | Techy Solutions</title>
+      <meta name="description" content="We offer the best software solutions for your business." />
+      <meta name="keywords" content="software, solutions, business, techy" />
+    </Helmet>
     <section className="hero">
       <div className="hero-text">
         <h1>Welcome to Techy Solutions</h1>
